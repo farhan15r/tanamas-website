@@ -8,7 +8,8 @@
             class="cover bg-blue-teal-gradient relative bg-blue-600 px-4 sm:px-8 lg:px-16 xl:px-40 2xl:px-64 overflow-hidden py-48 flex
                     items-center justify-center min-h-screen">
             <div class="h-full w-full absolute top-0 left-0 z-0">
-                <img src="images/cover-bg1.jpg" alt="" class="h-full lg:h-auto lg:w-full object-cover opacity-20" loading="lazy">
+                <img src="images/cover-bg1.jpg" alt="" class="h-full lg:h-auto lg:w-full object-cover opacity-20"
+                    loading="lazy">
             </div>
 
             <div class="z-10 w-full rounded-lg shadow md:mt-0 sm:max-w-md xl:p-0 bg-gray-800">
@@ -42,13 +43,13 @@
                             </a>
                         </div>
                         <button type="submit"
-                            class="inline-block w-full font-semibold px-4 py-2 text-white bg-blue-600 md:bg-transparent md:text-white border border-white rounded">
+                            class="inline-block w-full font-semibold px-4 py-2 text-white bg-blue-600 md:bg-transparent md:text-white border border-white rounded disabled:text-gray-500 disabled:border-gray-500">
                             Login
                         </button>
                         <p class="text-sm font-light text-gray-400">
                             Don’t have an account yet?
-                            <a href="#" class="font-medium text-primary-600 hover:underline text-primary-500">
-                                Sign up
+                            <a href="{{route('register.index', null, true)}}" class="font-medium text-primary-600 hover:underline text-primary-500">
+                                Register
                             </a>
                         </p>
                     </form>
@@ -56,4 +57,14 @@
             </div>
         </section>
     </div>
+@endsection
+
+@section('scripts')
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        document.querySelector('form').addEventListener('submit', function () {
+          document.querySelector('button').setAttribute('disabled', 'true');
+        });
+      });
+    </script>
 @endsection

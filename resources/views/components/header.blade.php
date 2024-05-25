@@ -90,10 +90,17 @@
                         </a>
                     </li>
                     <li class="md:ml-6 mt-3 md:mt-0">
-                        <a class="inline-block font-semibold px-4 py-2 text-white bg-blue-600 md:bg-transparent md:text-white border border-white rounded"
-                            href="{{ route('login.index', null, true) }}">
-                            Login
-                        </a>
+                        @auth
+                            <a class="inline-block font-semibold px-4 py-2 text-white bg-blue-600 md:bg-transparent md:text-white border border-white rounded"
+                                href="{{ route('login.destroy', null, true) }}">
+                                Logut
+                            </a>
+                        @else
+                            <a class="inline-block font-semibold px-4 py-2 text-white bg-blue-600 md:bg-transparent md:text-white border border-white rounded"
+                                href="{{ route('login.index', null, true) }}">
+                                Login
+                            </a>
+                        @endauth
                     </li>
                 </ul>
             </nav>

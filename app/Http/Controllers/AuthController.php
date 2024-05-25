@@ -6,29 +6,39 @@ use Illuminate\Http\Request;
 
 class AuthController extends Controller
 {
-    public function index(Request $request)
-    {
-      return view('login');
+  public function index(Request $request)
+  {
+    return view('login');
+  }
+
+  public function store(Request $request)
+  {
+    $data = $request->validate([
+      'email' => 'required|email',
+      'password' => 'required',
+    ]);
+
+    if (!auth()->attempt($data)) {
+      session()->flash('alertType', 'danger');
+      session()->flash('alertMessage', 'Invalid credentials! Please try again.');
+
+      return back()->withInput();
     }
 
-    public function store(Request $request)
-    {
-      $data = $request->validate([
-        'email' => 'required|email',
-        'password' => 'required',
-      ]);
 
-      if (!auth()->attempt($data)) {
-        session()->flash('alertType', 'danger');
-        session()->flash('alertMessage', 'Invalid credentials! Please try again.');
+    session()->flash('alertType', 'success');
+    session()->flash('alertMessage', 'You have been logged in!');
 
-        return back()->withInput();
-      }
+    return redirect()->route('index');
+  }
 
+  public function destroy(Request $request)
+  {
+    auth()->logout();
 
-      session()->flash('alertType', 'success');
-      session()->flash('alertMessage', 'You have been logged in!');
+    session()->flash('alertType', 'success');
+    session()->flash('alertMessage', 'You have been logged out!');
 
-      return redirect()->route('index');
-    }
+    return redirect()->route('index');
+  }
 }
