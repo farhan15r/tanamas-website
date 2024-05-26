@@ -15,9 +15,9 @@
             <div class="z-10 w-full rounded-lg shadow md:mt-0 sm:max-w-md xl:p-0 bg-gray-800">
                 <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
                     <h1 class="text-xl text-center font-bold leading-tight tracking-tight md:text-2xl text-white">
-                        Login to your account
+                        Reset your password
                     </h1>
-                    <form class="space-y-4 md:space-y-6" method="POST" action="{{ route('login.create') }}">
+                    <form class="space-y-4 md:space-y-6" method="POST" action="{{ route('password.email', null, true) }}">
                         @csrf
                         <div>
                             <label for="email" class="block mb-2 text-sm font-medium text-white">
@@ -27,29 +27,14 @@
                                 class="border sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
                                 placeholder="name@company.com" required="" value="{{ old('email') }}">
                         </div>
-                        <div>
-                            <label for="password" class="block mb-2 text-sm font-medium text-white">
-                                Password
-                            </label>
-                            <input type="password" name="password" id="password" placeholder="••••••••" required=""
-                                class="@error('password') border-red-400 @enderror border sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500">
-                            @error('password')
-                                <span class="text-red-400 text-sm">{{ $message }}</span>
-                            @enderror
-                        </div>
-                        <div class="flex items-center justify-end">
-                            <a href="{{route('password.request', null, true)}}" class="text-sm font-medium text-white hover:underline text-primary-500">
-                                Forgot password?
-                            </a>
-                        </div>
                         <button type="submit"
                             class="inline-block w-full font-semibold px-4 py-2 text-white bg-blue-600 md:bg-transparent md:text-white border border-white rounded disabled:text-gray-500 disabled:border-gray-500">
-                            Login
+                            Request password reset
                         </button>
                         <p class="text-sm font-light text-gray-400">
-                            Don’t have an account yet?
+                            Want to login?
                             <a href="{{route('register.index', null, true)}}" class="font-medium text-primary-600 hover:underline text-primary-500">
-                                Register
+                                Login
                             </a>
                         </p>
                     </form>

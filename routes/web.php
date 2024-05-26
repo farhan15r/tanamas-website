@@ -22,3 +22,10 @@ Route::middleware([Auth::class])->group(function () {
   Route::get('/email/verify/{id}/{hash}', [EmailController::class, 'verify'])->middleware(['signed'])->name('verification.verify');
   Route::post('/email/verify', [EmailController::class, 'send'])->middleware(['throttle:6,1'])->name('verification.send');
 });
+
+Route::middleware('guest')->group(function () {
+  Route::get('/forgot-password', [UserController::class, 'forgotPassword'])->name('password.request');
+  Route::post('/forgot-password', [UserController::class, 'sendResetLinkEmail'])->name('password.email');
+  Route::get('/reset-password/{token}', [UserController::class, 'resetPassword'])->name('password.reset');
+  Route::post('/reset-password', [UserController::class, 'updatePassword'])->name('password.update');
+});

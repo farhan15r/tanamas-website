@@ -7,7 +7,7 @@
       'danger' => 'text-red-400',
     ];
 
-    $alertClass = $alertClasses[session('alertType')] ?? 'bg-blue-400 text-blue-800';
+    $alertClass = $alertClasses[session('alertType') ?? 'info'];
   @endphp
 
   <div class="z-[999] sticky h-0 top-16 flex justify-center w-full items-center">
