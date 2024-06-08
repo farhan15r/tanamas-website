@@ -44,12 +44,12 @@
                         </div>
                         {{-- company name --}}
                         <div>
-                            <label for="company_name" class="block mb-2 text-sm font-medium text-white">
+                            <label for="company" class="block mb-2 text-sm font-medium text-white">
                                 Company Name
                             </label>
-                            <input type="text" name="company_name" id="company_name"
+                            <input type="text" name="company" id="company"
                                 class="border sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
-                                placeholder="Company Name" value="{{ old('company_name') }}">
+                                placeholder="Company Name" value="{{ old('company') }}">
                         </div>
                         <div>
                             <label for="password" class="block mb-2 text-sm font-medium text-white {{ $asteriskCSS }}">
