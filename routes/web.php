@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\EmailController;
 use App\Http\Controllers\UserController;
@@ -28,4 +29,12 @@ Route::middleware('guest')->group(function () {
   Route::post('/forgot-password', [UserController::class, 'sendResetLinkEmail'])->name('password.email');
   Route::get('/reset-password/{token}', [UserController::class, 'resetPassword'])->name('password.reset');
   Route::post('/reset-password', [UserController::class, 'updatePassword'])->name('password.update');
+});
+
+Route::prefix('admin')->name('admin.')->middleware([])->group(function () {
+  Route::get('/', function () {
+    return redirect()->route('admin.users.index');
+  })->name('admin.index');
+
+  Route::get('/users', [AdminUserController::class, 'index'])->name('users.index');
 });

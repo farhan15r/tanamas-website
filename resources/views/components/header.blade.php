@@ -53,7 +53,7 @@
                 <span>
                     <img src="/favicon.ico" alt="icon">
                 </span>
-                Tanamas Industry
+                Tanamas Industry Comunitas
             </a>
         </div>
 
