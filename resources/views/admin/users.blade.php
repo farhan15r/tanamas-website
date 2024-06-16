@@ -51,7 +51,7 @@
                             {{ $user->roles->pluck('name')->join(', ') }}
                         </td>
                         <td class="px-6 py-4">
-                            {{ date('d-M-Y', strtotime($user->email_verified_at)) }}
+                            {{ $user->email_verified_at ? date('d-M-Y', strtotime($user->email_verified_at)) : __('Never' )}}
                         </td>
                         <td class="px-6 py-4">
                             {{ $user->last_login ? date('d-M-Y H:i:s', strtotime($user->last_login)) : __('Never' )}}
