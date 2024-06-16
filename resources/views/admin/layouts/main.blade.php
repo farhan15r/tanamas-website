@@ -22,7 +22,7 @@
 
     <main class="flex flex-col md:flex-row">
         @include('admin.components.sidebar')
-        <section class="justify-center items-center w-full">
+        <section class="p-8 flex justify-center w-full">
             @yield('content')
         </section>
     </main>

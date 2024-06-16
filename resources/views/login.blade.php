@@ -17,7 +17,7 @@
                     <h1 class="text-xl text-center font-bold leading-tight tracking-tight md:text-2xl text-white">
                         Login to your account
                     </h1>
-                    <form class="space-y-4 md:space-y-6" method="POST" action="{{ route('login.create') }}">
+                    <form class="space-y-4 md:space-y-6" method="POST" action="{{ route('login.create', request()->query()) }}">
                         @csrf
                         <div>
                             <label for="email" class="block mb-2 text-sm font-medium text-white">

@@ -5,6 +5,7 @@
       'success' => 'text-green-400',
       'warning' => 'text-yellow-400',
       'danger' => 'text-red-400',
+      'error' => 'text-red-400',
     ];
 
     $alertClass = $alertClasses[session('alertType') ?? 'info'];

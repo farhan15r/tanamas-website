@@ -8,7 +8,7 @@ class AdminUserController extends Controller
 {
   public function index()
   {
-    $users = User::all();
+    $users = User::with('roles')->get();
 
     $data = [
       'users' => $users,

@@ -31,7 +31,7 @@ Route::middleware('guest')->group(function () {
   Route::post('/reset-password', [UserController::class, 'updatePassword'])->name('password.update');
 });
 
-Route::prefix('admin')->name('admin.')->middleware([])->group(function () {
+Route::prefix('admin')->name('admin.')->middleware([Auth::class])->group(function () {
   Route::get('/', function () {
     return redirect()->route('admin.users.index');
   })->name('admin.index');

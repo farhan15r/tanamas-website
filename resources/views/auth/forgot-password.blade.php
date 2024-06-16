@@ -33,7 +33,7 @@
                         </button>
                         <p class="text-sm font-light text-gray-400">
                             Want to login?
-                            <a href="{{route('register.index', null, true)}}" class="font-medium text-primary-600 hover:underline text-primary-500">
+                            <a href="{{route('login.index', null, true)}}" class="font-medium text-primary-600 hover:underline text-primary-500">
                                 Login
                             </a>
                         </p>

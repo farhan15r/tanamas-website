@@ -16,7 +16,10 @@ class Auth
     public function handle(Request $request, Closure $next): Response
     {
         if (!auth()->check()) {
-            return redirect()->route('login.index');
+          session()->flash('alertType', 'error');
+          session()->flash('alertMessage', 'You must be logged in to access that page.');
+
+            return redirect()->route('login.index', ['redirect' => $request->fullUrl()]);
         }
         return $next($request);
     }

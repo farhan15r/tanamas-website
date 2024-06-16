@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class AuthController extends Controller
 {
-  public function index(Request $request)
+  public function index()
   {
     return view('login');
   }
@@ -25,11 +26,14 @@ class AuthController extends Controller
       return back()->withInput();
     }
 
-
     session()->flash('alertType', 'success');
     session()->flash('alertMessage', 'You have been logged in!');
 
-    return redirect()->route('index');
+    User::where('id', auth()->id())->update(['last_login' => now()]);
+
+    $source = $request->input('redirect') ?? route('index');
+
+    return redirect()->to($source);
   }
 
   public function destroy(Request $request)
