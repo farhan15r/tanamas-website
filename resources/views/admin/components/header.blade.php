@@ -1,7 +1,5 @@
-<header>
-    <!--Nav-->
-    <nav aria-label="menu nav" class="bg-gray-800 pt-2 md:pt-1 pb-1 px-1 mt-0 h-auto sticky w-full z-20 top-0">
-
+<header class="bg-gray-800 pt-2 md:pt-1 pb-1 px-1 mt-0 h-auto sticky w-full z-20 top-0">
+    <nav>
         <div class="flex flex-wrap items-center w-full justify-between">
             <div class="flex flex-shrink md:w-1/3 justify-center md:justify-start text-white">
                 <a href="#" aria-label="Home" class=" flex flex-row items-center font-semibold">
@@ -30,7 +28,7 @@
                             </button>
 
                             <div id="myDropdown"
-                                class="dropdownlist absolute bg-gray-800 text-white right-0 mt-3 p-3 overflow-auto z-30 invisible min-w-40 rounded-lg">
+                                class="dropdownlist absolute bg-gray-800 text-white right-0 mt-4 p-3 overflow-auto z-30 invisible min-w-40 rounded-lg">
                                 <a href="#"
                                     class="p-2 hover:bg-gray-800 text-white text-sm no-underline hover:no-underline block">
                                     <i class="fa fa-user fa-fw"></i>
