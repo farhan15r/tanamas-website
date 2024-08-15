@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminProductController;
 use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\EmailController;
@@ -37,4 +38,7 @@ Route::prefix('admin')->name('admin.')->middleware([Auth::class])->group(functio
   })->name('admin.index');
 
   Route::get('/users', [AdminUserController::class, 'index'])->name('users.index');
+
+  Route::get('/products', [AdminProductController::class, 'index'])->name('products.index');
+  Route::get('/products/create', [AdminProductController::class, 'create'])->name('products.create');
 });
