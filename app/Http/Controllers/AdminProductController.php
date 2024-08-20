@@ -19,6 +19,12 @@ class AdminProductController extends Controller
 
   public function create()
   {
-    return view('admin.products.create');
+    $uploadImageToken = auth()->user()->createToken('upload-image')->plainTextToken;
+
+    $data = [
+      'uploadImageToken' => $uploadImageToken,
+    ];
+
+    return view('admin.products.create', $data);
   }
 }

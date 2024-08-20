@@ -12,6 +12,8 @@
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.5.2/css/all.css">
 
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
     @vite('resources/css/app.css')
 
     <title>Tanamas Industry Comunitas</title>
