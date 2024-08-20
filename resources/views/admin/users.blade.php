@@ -1,7 +1,7 @@
 @extends('admin.layouts.main')
 
 @section('content')
-    <div class="sm:rounded-lg max-w-7xl w-full">
+    <div class="sm:rounded-lg max-w-7xl w-full mb-14 h-fit">
         <table class="shadow-2xl w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
             <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                 <tr>

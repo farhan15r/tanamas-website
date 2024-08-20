@@ -17,13 +17,13 @@
     <title>Tanamas Industry Comunitas</title>
 </head>
 
-<body class="antialiased bg-slate-500 font-sans text-gray-900 h-dvh flex flex-col overflow-clip">
+<body class="antialiased bg-slate-500 font-sans text-gray-900 h-dvh flex flex-col">
     @include('admin.components.header')
 
-    <main class="flex flex-col md:flex-row h-full">
+    <main class="flex flex-col md:flex-row h-full overflow-hidden">
           @include('admin.components.sidebar')
 
-        <section class="p-8 flex justify-center w-full overflow-y-scroll">
+        <section class="p-8 flex justify-center w-full overflow-y-auto">
             @yield('content')
         </section>
     </main>

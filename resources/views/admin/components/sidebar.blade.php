@@ -5,7 +5,7 @@
     $path = $path[1];
 @endphp
 
-<nav aria-label="alternative nav" class="bg-gray-800 ">
+<nav aria-label="alternative nav" class="bg-gray-800">
     <div class="bottom-0 md:relative z-10 w-full md:w-48 content-center">
 
         <div class="md:w-48 content-center md:content-start text-left justify-between h-full">
