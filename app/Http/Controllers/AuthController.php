@@ -26,6 +26,9 @@ class AuthController extends Controller
       return back()->withInput();
     }
 
+    // delete all previous tokens
+    auth()->user()->tokens()->delete();
+
     session()->flash('alertType', 'success');
     session()->flash('alertMessage', 'You have been logged in!');
 
@@ -38,6 +41,7 @@ class AuthController extends Controller
 
   public function destroy(Request $request)
   {
+    auth()->user()->tokens()->delete();
     auth()->logout();
 
     session()->flash('alertType', 'success');
