@@ -42,6 +42,7 @@ Route::prefix('admin')->name('admin.')->middleware([Auth::class])->group(functio
 
   Route::get('/products', [AdminProductController::class, 'index'])->name('products.index');
   Route::get('/products/create', [AdminProductController::class, 'create'])->name('products.create');
+  Route::delete('/products/{id}', [AdminProductController::class, 'destroy'])->name('products.destroy');
 });
 
 Route::prefix('components')->name('components.')->group(function () {

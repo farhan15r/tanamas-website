@@ -64,15 +64,19 @@
                         <td class="px-6 py-4">
                             {{ date('d-M-Y H:i:s', strtotime($product->updated_at)) }}
                         </td>
-                        <td class="px-6 py-4 gap-1 flex">
+                        <td class="px-6 py-4 gap-2 flex w-full">
                             <a href="#"
-                                class="font-medium text-white p-1 hover:no-underline rounded-md bg-blue-600 dark:bg-blue-500 hover:bg-blue-700">
+                                class="font-medium text-white px-2 py-1 hover:no-underline rounded-md bg-blue-600 dark:bg-blue-500 hover:bg-blue-700 w-1/2 text-center">
                                 Edit
                             </a>
-                            <a href="#"
-                                class="font-medium text-white p-1 hover:no-underline rounded-md bg-blue-600 dark:bg-blue-500 hover:bg-blue-700">
-                                Remove
-                            </a>
+                            <form action="{{route('admin.products.destroy', $product->id)}}" class="flex w-1/2" method="POST" onsubmit="return confirm('Sure To Delete This Product?\n{{ $product->name }}')">
+                                @method('DELETE')
+                                @csrf
+                                <button type="submit"
+                                    class="font-medium text-white px-2 py-1 hover:no-underline rounded-md bg-red-600 dark:bg-red-500 hover:bg-red-700 hover:cursor-pointer">
+                                    Remove
+                                </button>
+                            </form>
                         </td>
                     </tr>
                 @endforeach

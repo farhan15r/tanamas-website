@@ -40,4 +40,36 @@ class AdminProductController extends Controller
 
     return view('admin.products.create', $data);
   }
+
+  public function destroy($id)
+  {
+    $product = Product::with('images')->find($id);
+
+    if ($product) {
+      $this->deleteImage($product->images);
+      $product->delete();
+      $alertType = 'success';
+      $alertMessage = 'Product deleted successfully';
+    } else {
+      $alertType = 'danger';
+      $alertMessage = 'Product not found';
+    }
+
+    return redirect()->route('admin.products.index', [
+      'alertType' => $alertType,
+      'alertMessage' => $alertMessage,
+    ]);
+  }
+
+  private function deleteImage($images)
+  {
+    foreach ($images as $image) {
+      $path = public_path($image->path);
+      if (file_exists($path)) {
+        unlink($path);
+
+        $image->delete();
+      }
+    }
+  }
 }
