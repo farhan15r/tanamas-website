@@ -24,7 +24,7 @@
         {{ session('alertMessage') }}
       </div>
       <button type="button"
-        class="ms-auto -mx-1.5 -my-1.5  rounded-lg focus:ring-2 focus:ring-blue-400 p-1.5 inline-flex items-center justify-center h-8 w-8 bg-gray-800 {{ $alertClass }} hover:bg-gray-700"
+        class="ms-auto -mx-1.5 -my-1.5  rounded-lg focus:ring-2 focus:ring-blue-400 p-1.5 inline-flex items-center justify-center h-8 w-8 bg-gray-800 {{ $alertClass }} hover:bg-gray-700" onclick="dismisAlert(this)"
         data-dismiss-target="#alert-1" aria-label="Close">
         <span class="sr-only">Close</span>
         <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
@@ -36,29 +36,9 @@
     </div>
   </div>
 
-
   <script>
-    const alertSticky = document.getElementById('alert-sticky');
-    const alertDismiss = alertSticky.querySelector('[data-dismiss-target]');
-    alertDismiss.addEventListener('click', () => {
-      alertSticky.classList.add('fade-out');
       setTimeout(() => {
-        alertSticky.remove();
-      }, 500); // Adjust the duration of the fade-out animation here (in milliseconds)
-    });
-
-    setTimeout(() => {
-      alertSticky.classList.add('fade-out');
-      setTimeout(() => {
-        alertSticky.remove();
-      }, 500); // Adjust the duration of the fade-out animation here (in milliseconds)
-    }, 10000);
-  </script>
-
-  <style>
-    .fade-out {
-      opacity: 0;
-      transition: opacity 0.5s ease-out;
-    }
-  </style>
+          dismisAlert(document.getElementById('alert-sticky'));
+      }, 10000);
+    </script>
 @endif

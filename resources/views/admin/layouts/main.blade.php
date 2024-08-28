@@ -20,10 +20,12 @@
 </head>
 
 <body class="antialiased bg-slate-500 font-sans text-gray-900 h-dvh flex flex-col">
+    @include('components.alert')
+
     @include('admin.components.header')
 
     <main class="flex flex-col md:flex-row h-full overflow-hidden">
-          @include('admin.components.sidebar')
+        @include('admin.components.sidebar')
 
         <section class="p-8 flex justify-center w-full overflow-y-auto">
             @yield('content')
@@ -31,6 +33,8 @@
     </main>
 
     @yield('scripts')
+
+    <script src="/scripts/script.js"></script>
 
     <script>
         /*Toggle dropdown list*/
