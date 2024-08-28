@@ -7,6 +7,7 @@ use App\Http\Controllers\ComponentsController;
 use App\Http\Controllers\EmailController;
 use App\Http\Controllers\UserController;
 use App\Http\Middleware\Auth;
+use App\Http\Middleware\Role;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -33,7 +34,7 @@ Route::middleware('guest')->group(function () {
   Route::post('/reset-password', [UserController::class, 'updatePassword'])->name('password.update');
 });
 
-Route::prefix('admin')->name('admin.')->middleware([Auth::class])->group(function () {
+Route::prefix('admin')->name('admin.')->middleware([Role::class . ':admin'])->group(function () {
   Route::get('/', function () {
     return redirect()->route('admin.users.index');
   })->name('admin.index');
