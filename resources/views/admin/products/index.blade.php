@@ -59,7 +59,7 @@
                             {{ date('d-M-Y H:i:s', strtotime($product->updated_at)) }}
                         </td>
                         <td class="px-6 py-4 gap-2 flex w-full">
-                            <a href="#"
+                            <a href="{{ route('admin.products.edit', $product->id) }}"
                                 class="font-medium text-white px-2 py-1 hover:no-underline rounded-md bg-blue-600 dark:bg-blue-500 hover:bg-blue-700 w-1/2 text-center">
                                 Edit
                             </a>

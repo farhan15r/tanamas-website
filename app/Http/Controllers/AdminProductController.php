@@ -41,6 +41,23 @@ class AdminProductController extends Controller
     return view('admin.products.create', $data);
   }
 
+  public function edit($id){
+    $product = Product::with('images')->find($id);
+
+    $uploadImageToken = auth()->user()->createToken('upload-image')->plainTextToken;
+    $updateProductToken = auth()->user()->createToken('update-product')->plainTextToken;
+    $categories = Category::all();
+
+    $data = [
+      'product' => $product,
+      'uploadImageToken' => $uploadImageToken,
+      'updateProductToken' => $updateProductToken,
+      'categories' => $categories,
+    ];
+
+    return view('admin.products.edit', $data);
+  }
+
   public function destroy($id)
   {
     $product = Product::with('images')->find($id);

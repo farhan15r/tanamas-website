@@ -11,4 +11,5 @@ Route::prefix('upload')->name('api.upload.')->group(function () {
 
 Route::prefix('products')->name('api.products.')->group(function () {
   Route::post('/', [ProductController::class, 'store'])->middleware(['auth:sanctum', 'ability:create-product'])->name('store');
+  Route::put('/{id}', [ProductController::class, 'update'])->middleware(['auth:sanctum', 'ability:update-product'])->name('update');
 });
