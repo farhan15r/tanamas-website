@@ -28,12 +28,12 @@
             </div>
             <div class="w-full flex flex-col">
                 <div class="flex flex-row w-full justify-between">
-                    <h4 class="text-xl font-semibold text-gray-800">SKU: </h4>
+                    <h4 class="text-xl font-semibold text-gray-800">Item No: </h4>
                     <input type="text" onchange="handleInputChange(event)"
                         class="form-control border-none focus:outline-none bg-slate-400 p-2 rounded w-1/2 text-gray-800 placeholder:text-slate-600"
-                        name="sku" placeholder="Product SKU">
+                        name="item_no" placeholder="Item Number">
                 </div>
-                <span id="error-sku" class="hidden text-red-800 text-right"></span>
+                <span id="error-item_no" class="hidden text-red-800 text-right"></span>
             </div>
             <div class="w-full flex flex-col">
                 <div class="flex flex-row w-full justify-between">
@@ -91,7 +91,7 @@
         const newProduct = {
             images: [],
             name: '',
-            sku: '',
+            item_no: '',
             category_id: '',
             description: '',
         }

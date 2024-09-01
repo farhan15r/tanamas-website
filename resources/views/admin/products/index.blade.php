@@ -23,7 +23,7 @@
                         Category
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        SKU
+                        Item Number
                     </th>
                     <th scope="col" class="px-6 py-3">
                         Description
@@ -53,7 +53,7 @@
                             {{ $product->category->name }}
                         </td>
                         <td class="px-6 py-4">
-                            {{ $product->sku }}
+                            {{ $product->item_no }}
                         </td>
                         <td class="px-6 py-4">
                             {{ \Illuminate\Support\Str::limit($product->description, 10, '...') }}
