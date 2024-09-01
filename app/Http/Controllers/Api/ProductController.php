@@ -13,7 +13,6 @@ class ProductController extends Controller
     $request->validate([
       'name' => 'required|string',
       'item_no' => 'required|string',
-      'description' => 'required|string',
       'category_id' => 'required|exists:categories,id',
       'images' => 'required|array',
     ]);
@@ -22,7 +21,7 @@ class ProductController extends Controller
       return ['path' => $imagePath];
     }, $request->images);
 
-    $product = Product::create($request->only(['name', 'item_no', 'description', 'category_id']));
+    $product = Product::create($request->only(['name', 'item_no', 'category_id']));
     $product->images()->createMany($images);
 
     $message = 'Product created successfully';

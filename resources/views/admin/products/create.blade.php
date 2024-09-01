@@ -49,15 +49,6 @@
                 </div>
                 <span id="error-category_id" class="hidden text-red-800 text-right"></span>
             </div>
-            <div class="w-full flex flex-col">
-                <div class="flex flex-row w-full justify-between">
-                    <h4 class="text-xl font-semibold text-gray-800">Description: </h4>
-                    <textarea onchange="handleInputChange(event)"
-                        class="form-control border-none focus:outline-none bg-slate-400 p-2 rounded w-1/2 text-gray-800 placeholder:text-slate-600"
-                        name="description" placeholder="Product Description" rows="6"></textarea>
-                </div>
-                <span id="error-description" class="hidden text-red-800 text-right"></span>
-            </div>
             <button class="btn btn-primary bg-slate-800 p-3 text-slate-200 rounded-lg" onclick="submitProduct(this)">Create
                 Product</button>
         </div>
@@ -93,7 +84,6 @@
             name: '',
             item_no: '',
             category_id: '',
-            description: '',
         }
 
         function handleInputChange(event) {

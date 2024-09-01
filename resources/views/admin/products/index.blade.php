@@ -26,9 +26,6 @@
                         Item Number
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Description
-                    </th>
-                    <th scope="col" class="px-6 py-3">
                         Created At
                     </th>
                     <th scope="col" class="px-6 py-3">
@@ -54,9 +51,6 @@
                         </td>
                         <td class="px-6 py-4">
                             {{ $product->item_no }}
-                        </td>
-                        <td class="px-6 py-4">
-                            {{ \Illuminate\Support\Str::limit($product->description, 10, '...') }}
                         </td>
                         <td class="px-6 py-4">
                             {{ date('d-M-Y H:i:s', strtotime($product->created_at)) }}
