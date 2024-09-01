@@ -7,10 +7,11 @@
             <h4 class="text-xl font-semibold text-gray-800">Images: </h4>
             <div>
                 <div id="image-container" class=" flex flex-row flex-wrap gap-8 content-start justify-start w-full">
-                    <div onclick="triggerFileInput()"
-                        class="w-40 h-40 rounded overflow-hidden shadow-lg bg-slate-400 text-center items-center content-center hover:cursor-pointer">
-                        <i class="fa-solid fa-plus fa-2xl"></i>
-                    </div>
+                    <button onclick="triggerFileInput()" id="btn-upload-image"
+                        class="w-40 h-40 rounded overflow-hidden shadow-lg bg-slate-400 text-center items-center content-center hover:cursor-pointer disabled:hover:cursor-not-allowed">
+                        <i class="fa-solid fa-plus fa-2xl" id="icon-plus-upload-image"></i>
+                        <i class="fa-solid fa-spinner fa-2xl animate-spin-slow" id="icon-loading-upload-image" hidden></i>
+                    </button>
 
                     <input type="file" class="form-control-file" id="input-image" name="image" style="display: none;"
                         onchange="uploadImage(this)">
@@ -49,8 +50,11 @@
                 </div>
                 <span id="error-category_id" class="hidden text-red-800 text-right"></span>
             </div>
-            <button class="btn btn-primary bg-slate-800 p-3 text-slate-200 rounded-lg" onclick="submitProduct(this)">Update
-                Product</button>
+            <button id="btn-submit-product"
+                class="btn btn-primary bg-slate-800 p-3 text-slate-200 rounded-lg disabled:bg-slate-400 disabled:cursor-not-allowed"
+                onclick="submitProduct(this)">
+                update Product
+            </button>
         </div>
     </section>
 @endsection
@@ -170,6 +174,14 @@
             const API_URL = `{{ route('api.upload.image') }}`;
             const TOKEN = '{{ $uploadImageToken }}';
 
+            const btnUpload = document.getElementById('btn-upload-image');
+            btnUpload.disabled = true;
+            btnUpload.querySelector('#icon-plus-upload-image').hidden = true;
+            btnUpload.querySelector('#icon-loading-upload-image').hidden = false;
+
+            const btnSumitProduct = document.getElementById('btn-submit-product');
+            btnSumitProduct.disabled = true;
+
             const image = input.files[0];
 
             try {
@@ -203,6 +215,12 @@
                 removeErrorMessage('images');
             } catch (error) {
                 console.error('Error uploading image:', error);
+            } finally {
+                btnUpload.disabled = false;
+                btnUpload.querySelector('#icon-plus-upload-image').hidden = false;
+                btnUpload.querySelector('#icon-loading-upload-image').hidden = true;
+
+                btnSumitProduct.disabled = false;
             }
         }
 
