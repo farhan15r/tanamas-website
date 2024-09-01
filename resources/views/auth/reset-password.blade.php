@@ -12,7 +12,7 @@
             class="cover bg-blue-teal-gradient relative bg-blue-600 px-4 sm:px-8 lg:px-16 xl:px-40 2xl:px-64 overflow-hidden py-48 flex
                     items-center justify-center min-h-screen">
             <div class="h-full w-full absolute top-0 left-0 z-0">
-                <img src="images/cover-bg1.jpg" alt="" class="h-full lg:h-full lg:w-full object-cover opacity-20"
+                <img src="/images/cover-bg1.jpg" alt="" class="h-full lg:h-full lg:w-full object-cover opacity-20"
                     loading="lazy">
             </div>
 
