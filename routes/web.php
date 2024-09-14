@@ -5,6 +5,7 @@ use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ComponentsController;
 use App\Http\Controllers\EmailController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use App\Http\Middleware\Auth;
 use App\Http\Middleware\Role;
@@ -20,6 +21,8 @@ Route::post('/register', [UserController::class, 'store'])->name('register.creat
 Route::get('/login', [AuthController::class, 'index'])->name('login.index')->middleware('guest');
 Route::post('/login', [AuthController::class, 'store'])->name('login.create');
 Route::get('/logout', [AuthController::class, 'destroy'])->name('login.destroy');
+
+Route::get('/products', [ProductController::class, 'index'])->name('products.index');
 
 Route::middleware([Auth::class])->group(function () {
   Route::get('/email/verify', [EmailController::class, 'index'])->name('verification.notice');

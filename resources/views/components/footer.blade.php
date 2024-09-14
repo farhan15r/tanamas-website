@@ -2,7 +2,7 @@
     <div class="flex flex-col md:flex-row">
         <div class="w-full lg:w-2/3 lg:mx-4 lg:pr-8">
             <h3 class="font-bold text-2xl">PT. Tanamas Industry Comunitas</h3>
-            <p class="text-gray-400">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy.
+            <p class="text-gray-400">Jakarta, Indonesia & Cirebon, West Java, Indonesia</p>
             </p>
 
             <form class="flex items-center mt-6 lg:w-2/3">

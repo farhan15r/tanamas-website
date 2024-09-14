@@ -4,7 +4,6 @@
     @include('components.alert')
 
     @include('components.index.hero')
-    @include('components.index.about')
-    @include('components.index.testimonial')
-    @include('components.index.blog')
+    @include('components.index.product')
+    {{-- @include('components.index.testimonial') --}}
 @endsection

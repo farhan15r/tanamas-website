@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  /* border: solid red 1px; */
+  /* box-sizing: border; */
+}
+
 #menu-toggle:checked+#menu {
   display: block;
 }
