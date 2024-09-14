@@ -18,11 +18,11 @@
                 @foreach ($products as $product)
                     <div>
                         <div
-                            class="relative flex bg-clip-border rounded-xl bg-white text-gray-700 shadow-md w-full max-w-[48rem] flex-row">
+                            class="relative flex bg-clip-border rounded-xl bg-white text-gray-700 shadow-md w-full max-w-[48rem] h-48 flex-row">
                             <div
-                                class="relative w-2/5 m-0 overflow-hidden text-gray-700 bg-white rounded-r-none bg-clip-border rounded-xl shrink-0">
+                                class="relative w-2/5 m-0 overflow-hidden text-gray-700 bg-white rounded-r-none bg-clip-border rounded-xl justify-center flex">
                                 <img src="{{ $product->images[0]->path }}" alt="card-image"
-                                    class="object-cover w-full h-full" />
+                                    class="object-cover h-full" />
                             </div>
                             <div class="p-4 flex flex-col gap-2">
                               <h6
