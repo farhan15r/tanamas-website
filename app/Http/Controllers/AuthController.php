@@ -34,9 +34,11 @@ class AuthController extends Controller
 
     User::where('id', auth()->id())->update(['last_login' => now()]);
 
-    $dest = $request->input('redirect') ??
-      auth()->user()->hasRole('admin') ? route('admin.users.index') :
-      route('index');
+
+    $dest = $request->input('redirect') ? $request->input('redirect')
+      : (auth()->user()->hasRole('admin') ? route('admin.users.index')
+        : route('index'));
+
 
     return redirect()->to($dest);
   }

@@ -22,12 +22,13 @@ Route::get('/login', [AuthController::class, 'index'])->name('login.index')->mid
 Route::post('/login', [AuthController::class, 'store'])->name('login.create');
 Route::get('/logout', [AuthController::class, 'destroy'])->name('login.destroy');
 
-Route::get('/products', [ProductController::class, 'index'])->name('products.index');
 
 Route::middleware([Auth::class])->group(function () {
   Route::get('/email/verify', [EmailController::class, 'index'])->name('verification.notice');
   Route::get('/email/verify/{id}/{hash}', [EmailController::class, 'verify'])->middleware(['signed'])->name('verification.verify');
   Route::post('/email/verify', [EmailController::class, 'send'])->middleware(['throttle:6,1'])->name('verification.send');
+
+  Route::get('/products', [ProductController::class, 'index'])->middleware('verified')->name('products.index');
 });
 
 Route::middleware('guest')->group(function () {
